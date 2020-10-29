@@ -1,0 +1,15 @@
+
+<table>
+    <th> Thank you for being philips customer. Pleasure serving you. </th>
+    <tr>
+        <td>Philips Personnel Contact Information</td>
+        <td><p class = "output"> {{message}} </p> </td>
+    </tr>
+
+    <tr> 
+        <td>Feedback [Kindly provide us feedback to improve]</td>
+        <td> <textarea [(ngModel)]="feedbackMessage" id="feedback"> </textarea>  </td>
+    </tr>
+</table>
+
+<button mat-stroked-button class="go-to-dasboard" (click) = "redirect()">Submit and Go Back To Dasboard</button> 

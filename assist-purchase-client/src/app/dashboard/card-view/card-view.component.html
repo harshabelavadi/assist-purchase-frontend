@@ -1,0 +1,14 @@
+<div class='fullHeight fullWidth allowoverflow' >
+    <div class="grid-container" *ngFor="let data of productList" 
+      (click)='detailsRedirect("../productdetails", data.pid)'>
+        <div class="grid-item">
+          <div class='label'>{{data.pname}}</div>
+        </div>
+        <div *ngIf="isImageAvailable(data.pid)">
+          <img src="../../../assets/images/{{imagename[data.pid]}}">
+        </div>
+        <div class="noimageavailable" *ngIf="!isImageAvailable(data.pid)">
+          NO IMAGE AVAILABLE
+        </div>
+    </div>
+</div>

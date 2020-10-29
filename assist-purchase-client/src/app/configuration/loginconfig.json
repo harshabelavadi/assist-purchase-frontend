@@ -1,0 +1,16 @@
+[
+    {
+      "uid": "1",
+      "uname": "Pranay",
+      "password": "pranay",
+      "email": "pranay@gmail.com",
+      "phone": "9858362147"
+    },
+    {
+      "uid": "2",
+      "uname": "harsha",
+      "password": "harsha",
+      "email": "harsha@gmail.com",
+      "phone": "8563214795"
+    }
+]

@@ -1,0 +1,30 @@
+.dashboardLink {
+    float: right;
+    margin-right: 1%;
+    cursor: pointer;
+}
+
+
+.assistLink {
+    float: right;
+    margin-right: 1%;
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 3%;
+    display: block;
+    color: blue;
+}
+
+.dashboardLink:hover {
+    color: blue;
+    opacity: 0.6;
+}
+
+
+.assistLink:hover {
+    color: blue;
+    opacity: 0.6;
+}
+

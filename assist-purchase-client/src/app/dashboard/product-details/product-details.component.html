@@ -1,0 +1,51 @@
+<div class = "top-block">
+    <div class="productInfo">
+        <table>
+            <th> Product Details </th>
+            <tr>
+                <td>Snapshot</td>
+                <td>
+                    <span *ngIf = "imagedisplayFlag">
+                        <img width="300" height="200" src="../../../assets/images/{{imagename}}">
+                    </span>
+                    <div *ngIf = "!imagedisplayFlag">NO IMAGE AVAILABLE</div>
+                </td>
+            </tr>
+            <tr *ngFor="let item of tableDatasource">
+                <td>{{ item[0] }}</td>
+                <td> {{ item[1] }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="trend-chart">
+        <span *ngIf = "displayGraphFlag">
+            <app-multi-line-chart [statisticsdata]="statisticsdata" [benchmarkdata]="benchmarkdata"></app-multi-line-chart>
+        </span>
+        <span *ngIf = "!displayGraphFlag">
+            NO GRAPH DATA AVAILABLE
+        </span>
+    </div>
+</div>
+
+
+<div class="getProduct">
+    <table class="contactDetails">
+        <th> Enter your contact details </th>
+        <tr>
+            <td> Email-address </td>
+            <td> 
+                <input [(ngModel)]="emailAddress" id="email" type="text" /> 
+            </td>
+        </tr>
+
+        <tr>
+            <td> Contact </td>
+            <td> 
+                <input [(ngModel)]="contactNumber" id="contact" type="text" /> 
+            </td>
+        </tr>
+    </table>
+    <button mat-stroked-button class="purchaseBtn" (click) = "validate()">Get Product</button>
+    <label class="errorMsg" *ngIf="errorFlag">{{errorMsg}}</label>
+</div>

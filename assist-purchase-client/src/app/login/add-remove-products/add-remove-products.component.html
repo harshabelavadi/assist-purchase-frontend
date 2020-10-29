@@ -1,0 +1,84 @@
+<div class="add-product-block">
+    <table class="insert-product-details">
+        <th> Enter new product details - Product Addition </th>
+        <tr>
+            <td> Product Name </td>
+            <td> 
+                <input [(ngModel)]="productname" id="pname" type="text" /> 
+            </td>
+        </tr>
+        <tr>
+            <td> Touchscreen </td>
+            <td> 
+                <mat-form-field appearance="fill">
+                <mat-label>Select Option </mat-label>
+                <mat-select [(value)]="touchscreen">
+                    <span *ngFor="let item of ['Yes', 'No']">
+                     <mat-option value="{{item}}">{{item}}</mat-option>
+                   </span>
+                 </mat-select>
+                 </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td> Transport Monitor </td>
+            <td> 
+                <mat-form-field appearance="fill">
+                <mat-label>Select Option </mat-label>
+                <mat-select [(value)]="transportmonitor">
+                    <span *ngFor="let item of ['Yes', 'No']">
+                      <mat-option value="{{item}}">{{item}}</mat-option>
+                    </span>
+                  </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td> Size (in inches) </td>
+            <td> 
+                <input [(ngModel)]="monitorsize" id="size" type="text" /> 
+            </td>
+        </tr>
+
+        <tr>
+            <td> Category </td>
+            <td> 
+                <mat-form-field appearance="fill">
+                <mat-label>Select Option </mat-label>
+                <mat-select [(value)]="category">
+                    <span *ngFor="let item of categories">
+                      <mat-option value="{{item}}">{{item}}</mat-option>
+                    </span>
+                </mat-select>
+            </mat-form-field>
+            </td>
+        </tr>
+        
+    </table>
+    <button mat-stroked-button class="addBtn" (click) = "validateAdd()">Add</button>
+    <label class="errorMsg" *ngIf="addErrorFlag">{{addErrorMsg}}</label>
+</div>
+
+
+<div class = "remove-product-block">
+
+    <table>
+        <th> Product Removal </th>
+        <tr>
+            <td> Choose a product to delete  </td>
+            <td>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Product</mat-label>
+                <mat-select [(value)]="selectedproductname">
+                  <span *ngFor="let item of productsnameslist">
+                    <mat-option value="{{item}}"> {{item}}</mat-option>
+                  </span>
+                </mat-select>
+              </mat-form-field>
+              </td>
+        </tr>
+    </table>
+    <button mat-stroked-button class="deleteBtn" (click) = "validateDelete()">Delete</button>
+    <label class="errorMsg" *ngIf="deleteErrorFlag">{{deleteErrorMsg}}</label>
+</div>

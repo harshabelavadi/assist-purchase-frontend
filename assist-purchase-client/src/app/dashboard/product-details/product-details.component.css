@@ -1,0 +1,55 @@
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+  .productInfo {
+    margin-top: 1.5%;
+    margin-left: 2%;
+    display: block;
+    float: left;
+  }
+  td{
+    width: 17em;
+  }
+
+  .getProduct {
+    margin-top: 3%;
+    margin-left: 2%;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  .purchaseBtn {
+    width: 15%;
+    margin-top: 3%;
+    margin-left: 2%;
+}
+
+.errorMsg {
+  margin-left: 2%;
+  color: #ec1616
+}
+
+.top-block {
+  width: 90%;
+  height: 68%;
+  margin-left: 1%;
+  border: gray solid 1px;
+}
+
+.trend-chart {
+    width: 65%;
+    height: 100%;
+    margin-top: 3%;
+    padding-left: 15%;
+    font-size: 14px;
+    float: left;
+    box-sizing: border-box;
+    display: block;
+}

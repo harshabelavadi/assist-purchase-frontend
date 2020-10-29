@@ -1,0 +1,44 @@
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  .add-product-block {
+    width: 75%;
+    height: 40%;
+  }
+
+   .insert-product-details {
+    margin-top: 3%;
+    margin-left: 2%;
+  }
+
+  .remove-product-block{
+    margin-top: 3%;
+    margin-left: 2%;
+  }
+
+  .addBtn {
+    width: 10%;
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.deleteBtn {
+    width: 10%;
+    margin-top: 2%;
+    margin-left: 7%;
+}
+
+.errorMsg {
+    margin-left: 2%;
+    color: #ec1616
+  }

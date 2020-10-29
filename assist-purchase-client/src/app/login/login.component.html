@@ -1,0 +1,20 @@
+<div class="login-block">
+    <table class="credentials">
+        <th> Enter your credentials </th>
+        <tr>
+            <td> Username </td>
+            <td> 
+                <input [(ngModel)]="username" id="user" type="text" /> 
+            </td>
+        </tr>
+
+        <tr>
+            <td> Password </td>
+            <td> 
+                <input [(ngModel)]="password" id="pwd" type="password" /> 
+            </td>
+        </tr>
+    </table>
+    <button mat-stroked-button class="loginBtn" (click) = "validate()">Login</button>
+    <label class="errorMsg" *ngIf="errorFlag">{{errorMsg}}</label>
+</div>

@@ -1,0 +1,28 @@
+.output {
+    margin-left: 2%;
+    color: #17007e;
+    font-size: 15px;
+  }
+
+  .output:hover {
+    opacity: 0.7;
+  }
+
+  table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  .go-to-dasboard {
+    width: 15%;
+    margin-top: 2%;
+    margin-left: 2%;
+}

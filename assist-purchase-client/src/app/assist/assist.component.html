@@ -1,0 +1,53 @@
+<h3 class="heading">Customer Assistance</h3>
+
+<div class = "assist-questions">
+    <mat-form-field appearance="fill">
+        <mat-label>Select Size</mat-label>
+        <mat-select [(value)]="size">
+          <span *ngFor="let item of unique_sizeList">
+            <mat-option value="{{item}}">Size {{item}}</mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+      
+      <p>You selected: {{size}}</p>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Is Transport Monitor?</mat-label>
+        <mat-select [(value)]="transportMonitor">
+           <span *ngFor="let item of ['Yes', 'No']">
+            <mat-option value="{{item}}">{{item}}</mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+      
+      <p>You selected: {{transportMonitor}}</p>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Is Touchscreen?</mat-label>
+        <mat-select [(value)]="touchscreen">
+          <span *ngFor="let item of ['Yes', 'No']">
+            <mat-option value="{{item}}">{{item}}</mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+      
+      <p>You selected: {{touchscreen}}</p>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select category</mat-label>
+        <mat-select [(value)]="category">
+          <span *ngFor="let item of categories">
+            <mat-option value="{{item}}">{{item}}</mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+      
+      <p>You selected: {{category}}</p>
+</div>
+
+<button mat-stroked-button class="assistBtn" (click)='getMonitorList()'>Get Assistance</button>
+
+
+<app-card-view [productList]="results"></app-card-view>
+  

@@ -1,0 +1,48 @@
+[
+    {
+      "pid": "1",
+      "description": "The Philips IntelliVue X3 is a compact, dual-purpose, transport patient monitor featuring intuitive smartphone-style operation and offering a scalable set of clinical measurements."
+    },
+    {
+      "pid": "2",
+      "description": "The IntelliVue MX40 patient wearable monitor gives you technology, intelligent design, and innovative features you expect from Philips – in a device light enough and small enough to be comfortably worn by ambulatory patients."
+    },
+    {
+      "pid": "3",
+      "description": "The Philips IntelliVue MX750 bedside patient monitor directly addresses the evolving security needs of the healthcare IT landscape, with a range of capabilities that support your cybersecurity strategies. In addition, this outstanding monitor offers advanced functionality and an extensive range of measurements."
+    },
+    {
+      "pid": "4",
+      "description": "Philips IntelliVue MX700 bedside patient monitor offers an expanded, real-time view of your patients’ vital signs. The integrated PC (iPC) option brings a host of clinically relevant information from your hospital’s intranet & applications."
+    },
+    {
+      "pid": "5",
+      "description": "Philips IntelliVue X2 is a combined multi-measurement module and transport monitor, ingeniously lightening the load when it comes to patient transport. Small enough and powerful enough to go virtually anywhere."
+    },
+    {
+      "pid": "6",
+      "description": "The IntelliVue MX500 combines powerful monitoring with flexible portability in one compact unit. Supplying comprehensive patient information at a glance, it can make a real difference when multiple patients and priorities need attention."
+    },
+    {
+      "pid": "7",
+      "description": "The IntelliVue MX800 is Philips first patient care solution to incorporate patient monitoring and clinical informatics. Designed to simplify access to patient information you need to enhance diagnostic confidence throughout the hospital."
+    },
+    {
+      "pid": "8",
+      "description": "The IntelliVue MX550 pairs powerful bedside monitoring with the reassurance of a battery backup. Supplying comprehensive patient information at a glance, it can make a real difference when multiple patients and priorities need attention."
+    },
+    {
+      "pid": "9",
+      "description": "The IntelliVue MX400 provides powerful monitoring in a highly compact, highly transportable unit. Supplying comprehensive patient information at a glance, it can make a real difference when multiple patients and priorities need attention."
+    },
+  
+    {
+      "pid": "10",
+      "description": "When both budget and quality matter, the choice is Efficia CM Series patient monitors. In tune with your needs, we offer a value range of patient monitors backed by our time-tested measurement algorithms."
+    },
+  
+    {
+      "pid": "11",
+      "description": "Clinicians need to respond swiftly to rapid changes in their patient's condition. Having a highly reliable, versatile patient monitoring solution on hand saves precious time in determining the best course of care. G40E is your choice for a cost-effective, easy to learn, pre-configured bedside monitor that provides reliable measurements (Philips ST/AR ECG and FAST-SpO₂)."
+    }
+  ]
