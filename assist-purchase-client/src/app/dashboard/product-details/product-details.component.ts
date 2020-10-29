@@ -40,24 +40,27 @@ export class ProductDetailsComponent implements OnInit {
       this.productId = Number(response.get('id'));   
       this.getImagePath();   
       this.getMonitorSaleStats(); 
-      
-      this.dashboardService.getProductById(this.productId).subscribe((response: Product) => {
+      this.executeDashboardGetService();
+    });
+  }
+
+  executeDashboardGetService(){
+    this.dashboardService.getProductById(this.productId).subscribe((response: Product) => {
         this.productDetails = response;
         this.getProductDescription();
-        
-        for (let element in this.productDetails) {
-          let value: string | number;
-          if(element == "pid")
-            continue;
-          if (element == "size" || element == "pname" || element == "description")
-            value = this.productDetails[element];
-          else
-            value = this.values[this.productDetails[element]];
-            
-          this.tableDatasource.push([this.headers[element], value]);
-        }  
+        this.populateProductData();
       });        
-    });
+  }
+
+  populateProductData()
+  {
+    for (let element in this.productDetails) {
+      let value: string | number;
+      if(element == "pid")
+        continue;
+      (element == "size" || element == "pname" || element == "description") ? value = this.productDetails[element] : value = this.values[this.productDetails[element]];
+      this.tableDatasource.push([this.headers[element], value]);
+    }  
   }
 
   getProductDescription(){
@@ -123,4 +126,3 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 }
-

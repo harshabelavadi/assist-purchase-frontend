@@ -29,18 +29,18 @@ export class RemoveConfirmationComponent implements OnInit {
       this.getImagePath();  
       this.dashboardService.getProductById(this.productId).subscribe((response: Product) => {
         this.productDetails = response;
-        for (let element in this.productDetails) {
-          let value = null;
-          if (element == "size" || element == "pname")
-            value = this.productDetails[element];
-          else
-            value = this.values[this.productDetails[element]];
-
-          this.tableDatasource.push([this.headers[element], value]);
-        }
+        this.performStoreDataOperations();
+        });
       });
-    });
+    }
+
+  performStoreDataOperations(){
+    for (let element in this.productDetails) {
+    let value = null;
+    (element == "size" || element == "pname") ? value = this.productDetails[element] : value = this.values[this.productDetails[element]];
+    this.tableDatasource.push([this.headers[element], value]);
   }
+}
 
   delete(decision:number)
   {
@@ -64,5 +64,4 @@ export class RemoveConfirmationComponent implements OnInit {
     }
     this.imagedisplayFlag = false;
   }
-
 }

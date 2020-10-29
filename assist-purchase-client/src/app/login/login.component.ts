@@ -29,16 +29,13 @@ export class LoginComponent implements OnInit {
     validate() {
 
       this.usersList = this.loginService.getLoginInformation();      
-
       for(let element of this.usersList){
-        if (element.uname == this.username && element.password == this.password ) {
-          this.redirect("../add-remove-products");
-          this.errorFlag = false;
-          return;
-        }
-        else
-          this.errorFlag = true;
-      }
+         this.authenticate(element.uname, element.password)?this.redirect("../add-remove-products"):this.errorFlag = true;
+        }          
+    }
+
+    authenticate(username:string, password:string) {
+      return (this.username == username && this.password == password);
     }
 
 }

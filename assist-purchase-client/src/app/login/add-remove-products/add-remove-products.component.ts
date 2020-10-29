@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { element } from 'protractor';
 import { AppService } from 'src/app/app.service';
 import { Product } from 'src/app/models/Product';
 import { DashboardService } from 'src/app/service/dashboard.service';
@@ -48,31 +49,39 @@ export class AddRemoveProductsComponent implements OnInit {
   }
 
   validateAdd(){
-      let newProduct : Product = new Product();
-
-      if (this.productname == "" || this.touchscreen == "" || this.monitorsize == "" || this.category == "" || this.transportmonitor == "")
+    let properties = [this.productname, this.touchscreen, this.monitorsize, this.category, this.transportmonitor]
+    for (let element of properties){
+      if (element == ""){
         this.addErrorFlag = true;
-      else
-      {
-        this.addErrorFlag = false;
-        newProduct.pname = this.productname;
-        newProduct.touchscreen = this.touchscreen == "Yes" ? true : false;
-        newProduct.transportMonitor = this.transportmonitor == "Yes" ? true : false;
-        newProduct.size = Number(this.monitorsize);
-        newProduct.category = this.category.toLowerCase();
-
-        this.dashboardService.addProduct(newProduct).subscribe();
-
-        this.redirectToResultsView();
+        return;
       }
+    }
+     this.addProduct();
+  }
+
+  addProduct(){
+    let newProduct = this.setProductProperties();
+    this.addErrorFlag = false;
+    this.dashboardService.addProduct(newProduct).subscribe();
+    this.redirectToResultsView();
+  }
+
+  setProductProperties() {
+    let newProduct : Product = new Product();
+    newProduct.pname = this.productname;
+    newProduct.touchscreen = this.touchscreen == "Yes" ? true : false;
+    newProduct.transportMonitor = this.transportmonitor == "Yes" ? true : false;
+    newProduct.size = Number(this.monitorsize);
+    newProduct.category = this.category.toLowerCase();
+    return newProduct;
   }
 
   validateDelete(){
-    if (this.selectedproductname == "")
-      this.deleteErrorFlag = true;
-    else
-      this.deleteErrorFlag = false;
+    (this.selectedproductname == "")? this.deleteErrorFlag = true: this.deleteErrorFlag = false;
+    this.deleteSelectedItem();
+  }
 
+  deleteSelectedItem() {
     for (let element of this.appService.productList){
       if (element.pname == this.selectedproductname)
         this.redirectToDeleteConfirmation(element.pid);

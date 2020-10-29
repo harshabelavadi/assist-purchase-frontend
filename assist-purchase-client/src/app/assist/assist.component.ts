@@ -25,7 +25,6 @@ export class AssistComponent implements OnInit {
   }
 
   getItemsForDropDown() {
-    if(this.appService.productList) {
       this.appService.productList.forEach(element => {
         let capitalize_category = element.category[0].toUpperCase()+element.category.slice(1)
         if(!this.categories.includes(capitalize_category))
@@ -37,26 +36,26 @@ export class AssistComponent implements OnInit {
         });
       this.unique_sizeList.sort((num1, num2) => num1 < num2 ? -1 : num1 > num2? 1 : 0);
       this.categories.sort((category1, category2) => category1 < category2 ? -1 : category1 > category2? 1 : 0);
-    }
   }
 
   getMonitorList() {
-    let transportMonitor_boolean = false, touchscreen_boolean = false;
     this.results = [];
-    if (this.areAllOptionsSelected())
-    {
-      transportMonitor_boolean = this.transportMonitor == 'Yes' ? true : false;
-      touchscreen_boolean = this.touchscreen == 'Yes' ? true : false;
-      this.category = this.category.toLowerCase();
+    (this.areAllOptionsSelected())?this.setMonitorProperties() : this.refreshAllProperties();
+  }
 
-      this.dashboardService.getProductListByFilter(touchscreen_boolean, this.size, this.category, transportMonitor_boolean).subscribe((response: Product[]) => {
-        this.results = response;
-        this.results.sort((p1, p2) => p1.pname < p2.pname ? -1 : p1.pname > p2.pname ? 1 : 0);
-      });
-    }
+  setMonitorProperties(){
+    let transportMonitor_boolean = false, touchscreen_boolean = false;
+    transportMonitor_boolean = this.transportMonitor == 'Yes' ? true : false;
+    touchscreen_boolean = this.touchscreen == 'Yes' ? true : false;
+    this.category = this.category.toLowerCase();
+    this.executeFilterService(transportMonitor_boolean, touchscreen_boolean);
+  }
 
-    this.refreshAllProperties();
-
+  executeFilterService(transportMonitor_boolean, touchscreen_boolean){
+    this.dashboardService.getProductListByFilter(touchscreen_boolean, this.size, this.category, transportMonitor_boolean).subscribe((response: Product[]) => {
+      this.results = response;
+      this.results.sort((p1, p2) => p1.pname < p2.pname ? -1 : p1.pname > p2.pname ? 1 : 0);
+    });
   }
 
   refreshAllProperties(){
@@ -68,9 +67,13 @@ export class AssistComponent implements OnInit {
 
   areAllOptionsSelected()
   {
-      if(this.touchscreen && this.size && this.category && this.transportMonitor)
+    let properties = [this.touchscreen, this.size, this.category, this.transportMonitor]
+    for (let element of properties){
+      if (element == ""){
         return true;
-      return false;
+      }
+    }
+    return false;
   }
 
 }
